@@ -13,6 +13,8 @@ class Crawler():
   def run(self):
     print(self._urls)
     for url in self._urls:
+      if url in self._result.keys():
+        continue
       page_response = requests.get(url, timeout=5).text
       page_content = BeautifulSoup(page_response, "html.parser").get_text()
       regex = r"\W" + re.escape(self._word) + r"\W+"

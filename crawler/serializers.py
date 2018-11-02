@@ -2,7 +2,7 @@ from rest_framework import serializers
 
 class CrawlerSerializer(serializers.Serializer):
   urls = serializers.ListField(
-    child=serializers.URLField(),
-    
+    required=True,
+    child=serializers.URLField(required=True)
   )
-  word = serializers.CharField()
+  word = serializers.CharField(required=True)

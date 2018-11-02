@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crawler',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [
@@ -52,6 +53,20 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pontotel.urls'
+
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+    'DOC_EXPANSION': 'full',
+    'USE_SESSION_AUTH': False,
+    "SUPPORTED_SUBMIT_METHOD": ['post'],
+    'APIS_SORTER': 'alpha',
+    "SHOW_REQUEST_HEADERS": True,
+    "VALIDATOR_URL": None,
+}
 
 TEMPLATES = [
     {
