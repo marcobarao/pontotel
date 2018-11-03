@@ -7,6 +7,6 @@ from crawler import views
 schema_view = get_swagger_view(title='Snippets API')
 
 urlpatterns = [
-    path('^$', schema_view),
-    path(r'crawler', views.CrawlerAPI.as_view(), name="crawler")
+    path('', schema_view),
+    path('crawler', views.CrawlerAPI.as_view(), name="crawler")
 ]

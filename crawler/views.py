@@ -1,8 +1,9 @@
 from django.http import HttpResponse
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
 from rest_framework.generics import CreateAPIView
-from rest_framework.decorators import detail_route
 from rest_framework.response import Response
-from rest_framework import status, renderers
+from rest_framework import status
 
 from .serializers import CrawlerSerializer
 from .models import Crawler
@@ -17,6 +18,9 @@ class CrawlerAPI(CreateAPIView):
       urls = request.data["urls"]
       word = request.data["word"]
       crawler = Crawler(urls, word)
-      crawler.run()
       return Response(crawler.result(), status=status.HTTP_200_OK)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    @method_decorator(cache_page(60))
+    def dispatch(self, *args, **kwargs):
+        return super(CrawlerAPI, self).dispatch(*args, **kwargs)
