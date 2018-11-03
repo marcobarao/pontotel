@@ -4,10 +4,10 @@ Essa "aplicação" foi relizada como forma de participação do processo seletiv
 
 ## Objetivos
 
-Obs: Fiz dentro de meu conhecimento, os objetivos em destaque eram obrigatórios.
+Obs: Fiz dentro de meu conhecimento, os objetivos acompanhados por asterisco (*) eram obrigatórios.
 
-- [x] _API_
-- [x] _Scraping_
+- [x] _API_(*)
+- [x] _Scraping_(*)
 - [x] Pytest
 - [x] Documentação da API
 - [ ] Caching
